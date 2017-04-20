@@ -1,0 +1,20 @@
+2017-04-05 15:21:59 INFO  - We started up, it's a happy day :-) 
+2017-04-05 15:21:59 INFO  - We'll use SimpleMind1 to think
+2017-04-05 15:22:31 ERROR - Couldn't convert input length to a number: ; error: For input string: ""
+2017-04-05 15:22:31 ERROR - Wrong input length of -1; skip reading and processing.
+2017-04-05 15:22:31 ERROR - Couldn't convert input length to a number: ; error: For input string: ""
+2017-04-05 15:22:31 ERROR - Wrong input length of -1; skip reading and processing.
+2017-04-05 15:22:31 ERROR - Couldn't convert input length to a number: ; error: For input string: ""
+2017-04-05 15:22:31 ERROR - Wrong input length of -1; skip reading and processing.
+2017-04-05 15:22:31 ERROR - Couldn't convert input length to a number: ; error: For input string: ""
+2017-04-05 15:22:32 ERROR - Wrong input length of -1; skip reading and processing.
+2017-04-05 15:22:33 ERROR - Couldn't convert input length to a number: stop; error: For input string: "stop"
+2017-04-05 15:22:33 ERROR - Wrong input length of -1; skip reading and processing.
+2017-04-05 15:22:37 ERROR - Couldn't convert input length to a number: :q; error: For input string: ":q"
+2017-04-05 15:22:37 ERROR - Wrong input length of -1; skip reading and processing.
+2017-04-05 15:23:34 INFO  - We started up, it's a happy day :-) 
+2017-04-05 15:23:34 INFO  - We'll use SimpleMind1 to think
+2017-04-05 15:47:03 INFO  - We started up, it's a happy day :-) 
+2017-04-05 15:47:03 INFO  - We'll use SimpleMind1 to think
+2017-04-05 15:48:59 INFO  - We started up, it's a happy day :-) 
+2017-04-05 15:48:59 INFO  - We'll use SimpleMind1 to think
