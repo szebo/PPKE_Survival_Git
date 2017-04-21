@@ -56,21 +56,21 @@ public class SimpleMind1 implements Brain {
 						else if(map[x][y] == 1)
 						{
 							factory.setBlocked(x, y);
-							log.info("Block found at: "+x+", "+y);
+							//log.info("Block found at: "+x+", "+y);
 						}
 						else if(10 < map[x][y] && map[x][y] < 100)
 						{
-							log.info("Food found at: "+x+", "+y);
+							//log.info("Food found at: "+x+", "+y);
 							food.add(new FieldAStar(x, y, FieldType.FOOD, 0));
 						}
 						else if(map[x][y] > 1000 && map[x][y] != 1000+id)
 						{
-							log.info("Other player "+(map[x][y]-1000)+" found at: "+x+", "+y);
+							//log.info("Other player "+(map[x][y]-1000)+" found at: "+x+", "+y);
 							otherPlayers.add(new FieldAStar(x, y, FieldType.PLAYER, 0));
 						}
 						else
 						{
-							log.info("Free field found at: "+x+", "+y);
+							//log.info("Free field found at: "+x+", "+y);
 						}
 					}
 				}
@@ -84,24 +84,28 @@ public class SimpleMind1 implements Brain {
 				{	
 					FieldAStar[] foodArray = Utils.toFieldArray(food);
 					FieldAStar target = null;
+					ReverseAStar astar = factory.buildAStar(playerx, playery);
+					
 					for(int i = 0; i < food.size(); i++)
 					{
 						if(Utils.getDistance(new FieldAStar(playerx, playery), foodArray[i], width, height) < Utils.getDistance(new FieldAStar(playerx, playery), target, width, height))
 						{
 							target = foodArray[i];
+							log.info("Current target is: "+target);
 						}
 					}
+					log.info("Closest food is: "+target);
 					for(int i = 0; i < food.size(); i++)
 					{
 						target.finalCost = factory.buildAStar(playerx, playery).getPathTo(target).length;
 					}
 					
-					log.info("Picked random food.");
-					ReverseAStar astar = factory.buildAStar(playerx, playery);
 					ReverseAStar.PositionAStar[] path = astar.getPathTo(target);
 					
+					log.info("Picked random food.");
+					
 					String wayToFood = "";
-					for(int i = 0; i < target.finalCost; i++) { //destination.parent.x != playerx && destination.parent.y != playery
+					for(int i = 0; i < target.finalCost; i++) {
 						wayToFood = "=>("+path[i].x+"," +path[i].y+ ")"+wayToFood;
 						path[i] = path[i].parent;
 					}

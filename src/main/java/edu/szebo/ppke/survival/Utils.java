@@ -9,7 +9,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Utils {
+	
+	private static Logger log = LoggerFactory.getLogger(Utils.class.getName());
 	
 	public static int[] toIntArray(Integer[] data) {
 		int[] result = new int[data.length];
@@ -58,12 +63,17 @@ public class Utils {
     
     public static int getDistance(FieldAStar start, FieldAStar target, int width, int height)
     {
-    	int distance = 0;
+    	if(target == null)
+    	{
+    		log.info("The target is null!");
+    		return 0;
+    	}
+    	else
+    	{
     	AStarFactory factory = new AStarFactory(width, height);
-    	
-    	distance = factory.buildAStar(start.x, start.y).getPathTo(target).length;
     		
-    	return distance;
+    	return target.finalCost = factory.buildAStar(start.x, start.y).getPathTo(target).length;
+    	}
     }
     
     public static FieldAStar[] toFieldArray(Set<FieldAStar> data)

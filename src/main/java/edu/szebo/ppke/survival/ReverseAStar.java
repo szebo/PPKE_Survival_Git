@@ -5,11 +5,15 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import edu.szebo.ppke.survival.AStarFactory.Position;
 
 public class ReverseAStar {
 	
 	public static final int COST = 1;
+	private static Logger log = LoggerFactory.getLogger(ReverseAStar.class.getName());
 	
 	static class FieldAStar{
 		int heuristicCost;
@@ -172,6 +176,7 @@ public class ReverseAStar {
 
 		int parentCount = 0;
 		FieldAStar destination = target;
+		log.info("Next destination is:"+destination);
 		while(destination.parent.x != startx && destination.parent.y != starty)
 		{
 			parentCount++;
