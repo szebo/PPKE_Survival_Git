@@ -1,5 +1,7 @@
 package edu.szebo.ppke.survival;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Set;
 
@@ -166,15 +168,21 @@ public class ReverseAStar {
 		if(!closed[target.x][target.y])
 			findPath(target.x, target.y);
 		
+		List<FieldAStar> pathList = new ArrayList<FieldAStar>();
+
 		int parentCount = 0;
 		FieldAStar destination = target.parent;
 		while(target.parent.x != startx && target.parent.y != starty)
+		{
 			parentCount++;
+			pathList.add(destination);
+			destination = destination.parent;
+		}		
 		
 		PositionAStar[] path = new PositionAStar[parentCount];
 		
 		for(int i = 0; i < parentCount; i++)
-			path[i] = new PositionAStar(destination.x, destination.y);
+			path[i] = new PositionAStar(pathList.get(i).x, pathList.get(i).y);
 		
 		return path;
 	}
