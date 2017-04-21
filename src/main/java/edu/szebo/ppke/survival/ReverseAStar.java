@@ -171,8 +171,8 @@ public class ReverseAStar {
 		List<FieldAStar> pathList = new ArrayList<FieldAStar>();
 
 		int parentCount = 0;
-		FieldAStar destination = target.parent;
-		while(target.parent.x != startx && target.parent.y != starty)
+		FieldAStar destination = target;
+		while(destination.parent.x != startx && destination.parent.y != starty)
 		{
 			parentCount++;
 			pathList.add(destination);
